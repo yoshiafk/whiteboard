@@ -35,6 +35,7 @@ import {
 } from "./TeamBoardDetailElement";
 import EmptyBoardDetail from "./EmptyBoardDetail";
 import NewListModal from "../../components/BoardDetails/Modal/NewListModal";
+import { addCard } from "../../redux/CardTask/actions";
 
 export const MODAL_INVITE = 1;
 export const MODAL_NEWTASK = 2;
@@ -49,10 +50,16 @@ const TeamBoardDetails = (props) => {
     dispatch(getUserData(token));
   }, [dispatch, token]);
 
-  console.log("cape deh list");
-  console.log(props.list);
-
+  // console.log("cape deh list");
+  // console.log(props.list);
   const [isOpen, setIsOpen] = useState(false);
+  const d = new Date();
+
+  const [f_priority, setPriority] = useState(1);
+  const [f_title, setTitle] = useState("");
+  const [f_dueDate, setDueDate] = useState(d);
+  const [f_description, setDesc] = useState("");
+
   const [whichModal, setWhichModal] = useState(null);
   const [inviteEmail, setinviteEmail] = useState({
     email: "",
@@ -65,9 +72,23 @@ const TeamBoardDetails = (props) => {
     });
   };
 
-  const submitInvite = () => {
-    // dispatch(deleteAccount(token));
-    console.log(props.allList);
+  const submitInvite = (e) => {
+    e.preventDefault();
+    const body = {
+      priority: f_priority,
+      title: f_title,
+      description: f_description,
+      dueDate: f_dueDate,
+    };
+    const listId = document.getElementById("form_listid").value;
+
+    props.addCard(body, props.selectedBoard, props.selectedTeam, listId);
+
+    setPriority(1);
+    setTitle("");
+    setDueDate(d);
+    setDesc("");
+    setIsOpen(false);
   };
 
   function toggleModal() {
@@ -78,10 +99,10 @@ const TeamBoardDetails = (props) => {
     props.getListAction();
   }, []);
 
-  console.log("List =>", props.list);
+  // console.log("List =>", props.list);
 
   let userFromTeam = props.teamList[0].userId;
-  console.log("user From Team", userFromTeam);
+  // console.log("user From Team", userFromTeam);
   const data = userFromTeam.map((d) => ({
     email: d.email,
     key: d.email,
@@ -91,8 +112,8 @@ const TeamBoardDetails = (props) => {
 
   const onDragEnd = ({ source, destination, type }) => {
     if (!destination) return;
-    console.log("source", source);
-    console.log("destionation", destination);
+    // console.log("source", source);
+    // console.log("destionation", destination);
     // Move list
     if (type === "list") {
       // Prevent update if nothing has changed
@@ -140,7 +161,8 @@ const TeamBoardDetails = (props) => {
                     <HiOutlineUserGroup />
                   </Title>
                   <Address>
-                    Boards / {props.selectedTeam} / {props.selectedBoard.board}
+                    Boards / {props.selectedTeam.team} /{" "}
+                    {props.selectedBoard.board}
                   </Address>
                 </TopLeft>
                 <TopRight>
@@ -270,96 +292,111 @@ const TeamBoardDetails = (props) => {
 
             <form className="newtask-form">
               <div className="newtask-breadcrumbs">
-                Board Task | SSS by Team A
+                Board Task | {props.selectedBoard.board} by{" "}
+                {props.selectedTeam.team}
               </div>
               <input
                 className="newtask-form-input"
                 type="text"
                 name="task-title"
+                id="form_task_title"
                 placeholder="TES"
-                onChange={(event) => handleInvite(event)}
+                value={f_title}
+                onChange={(event) => setTitle(event.target.value)}
               />
 
               <div>
                 <select
                   className="dropdown-form-input"
                   name="todo"
-                  id="todo"
+                  id="form_listid"
                   // onChange={(event) => handleChangeData(event)}
                   // value={user.industry}
                   // defaultValue={user.industry}
                 >
-                  {/* <option disabled hidden value=""></option> */}
-                  <option value="0">TODO:</option>
-                  <option value="TASK 1">TASK 1 </option>
-                  <option value="TASK 2">TASK 2</option>
-                  <option value="TASK 3">TASK 3</option>
+                  {props.list.map((el) => {
+                    return <option value={el._id}>{el.title}</option>;
+                  })}
                 </select>
               </div>
 
-              <form className="detail-form">
+              <div className="detail-form">
                 <input
                   contentLabel="coba"
                   className="detail-form-input"
                   type="text"
                   name="task-title"
+                  id="form_assign_to"
                   placeholder="none"
-                  onChange={(event) => handleInvite(event)}
+                  // onChange={(event) => handleInvite(event)}
+                />
+
+                <select
+                  className="detail-form-input"
+                  name="priority"
+                  id="form_priority"
+                  value={f_priority}
+                  onChange={(event) => {
+                    setPriority(event.target.value);
+                  }}
+                >
+                  <option value="1">low</option>
+                  <option value="2">medium</option>
+                  <option value="3">high</option>
+                  <option value="4">dangerous</option>
+                </select>
+                <input
+                  className="detail-form-input"
+                  type="date"
+                  name="due_date"
+                  id="form_due_date"
+                  placeholder="none"
+                  value={f_dueDate}
+                  onChange={(event) => setDueDate(event.target.value)}
                 />
                 <input
                   className="detail-form-input"
                   type="text"
                   name="task-title"
+                  id="form_label"
                   placeholder="none"
-                  onChange={(event) => handleInvite(event)}
+                  // onChange={(event) => handleInvite(event)}
                 />
-                <input
-                  className="detail-form-input"
-                  type="text"
-                  name="task-title"
-                  placeholder="none"
-                  onChange={(event) => handleInvite(event)}
-                />
-                <input
-                  className="detail-form-input"
-                  type="text"
-                  name="task-title"
-                  placeholder="none"
-                  onChange={(event) => handleInvite(event)}
-                />
-              </form>
-              <form className="detail-label">
+              </div>
+              <div className="detail-label">
                 <div className="detail-labels">Assign to</div>
                 <div className="detail-labels">Priority</div>
                 <div className="detail-labels">Due Date</div>
                 <div className="detail-labels">Labels</div>
-              </form>
+              </div>
 
               <div className="newtask-editor-desc">Description</div>
               <div className="newtask-editor">
                 <CKEditor
+                  id="form_desc"
                   editor={ClassicEditor}
-                  data="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget pretium augue, quis ornare nisl. Lorem ipsum dolor sit amet, consectetur adipiscing. Quisque eget pretium augue, quis ornare nisl.</p>"
+                  data={f_description}
                   onReady={(editor) => {
                     // You can store the "editor" and use when it is needed.
-                    console.log("Editor is ready to use!", editor);
+                    // console.log("Editor is ready to use!", editor);
                   }}
                   onChange={(event, editor) => {
                     const data = editor.getData();
-                    console.log({ event, editor, data });
+                    setDesc(data);
+                    // console.log({ event, editor, data });
                   }}
                   onBlur={(event, editor) => {
-                    console.log("Blur.", editor);
+                    // console.log("Blur.", editor);
                   }}
                   onFocus={(event, editor) => {
-                    console.log("Focus.", editor);
+                    // console.log("Focus.", editor);
                   }}
                 />
               </div>
               <button
                 className="Newtask-form-submit"
                 type="button"
-                // onClick={submitInvite}
+                onClick={submitInvite}
               >
                 Save
               </button>
@@ -402,7 +439,7 @@ const mstp = (state) => {
         ? x.boardId[0]._id == state.SelectedBoard.selectedBoard.id
         : false;
     }),
-    selectedTeam: state.SelectedTeam.selectedTeam.team,
+    selectedTeam: state.SelectedTeam.selectedTeam,
     selectedBoard: state.SelectedBoard.selectedBoard,
   };
 };
@@ -410,6 +447,8 @@ const mstp = (state) => {
 const mdtp = (dispatch) => {
   return {
     getListAction: () => dispatch(getAllList()),
+    addCard: (body, board, team, list) =>
+      dispatch(addCard(body, board, team, list)),
   };
 };
 
