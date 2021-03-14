@@ -63,7 +63,7 @@ export const TextWrapper = styled.div`
 `;
 
 export const ImgWrapper = styled.div`
-  max-width: 555px;
+  max-width: 27.5vw;
   display: flex;
   justify-content: ${({ start }) => (start ? "flex-start" : "flex-end")};
 `;
@@ -71,10 +71,11 @@ export const ImgWrapper = styled.div`
 export const Img = styled.img`
   padding-right: 0;
   border: 0;
-  max-width: 100%;
+  /* max-width: 100%; */
   vertical-align: middle;
   display: inline-block;
-  max-height: 500px;
+  height: 55vh;
+  width: 27.5vw;
 `;
 
 export const Heading = styled.h1`

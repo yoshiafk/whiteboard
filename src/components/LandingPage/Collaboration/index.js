@@ -29,11 +29,11 @@ function Collaboration() {
                 <a href="/">Learn more about Whiteboard board → </a>
               </TextWrapper>
             </InfoColumn>
-            <InfoColumn>
-              <ImgWrapper>
-                <Img src={sitdown} alt="" />
-              </ImgWrapper>
-            </InfoColumn>
+            {/* <InfoColumn> */}
+            <ImgWrapper>
+              <Img src={sitdown} alt="" />
+            </ImgWrapper>
+            {/* </InfoColumn> */}
           </InfoRow>
         </Container>
       </InfoSec>

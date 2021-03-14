@@ -18,15 +18,23 @@ export const Container = styled.div`
 export const InfoSec = styled.div`
   padding: 50px 0;
   background: #fdf1cb;
-  height: 551px;
+  height: 100%;
 `;
 
 export const InfoRow = styled.div`
   display: flex;
   margin: 0 -15px -15px -15px;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   align-items: center;
-  flex-direction: "row";
+  flex-direction: row;
+  justify-content: center;
+  @media screen and (max-width: 960px) {
+    max-width: 100%;
+    flex-basis: 100%;
+    /* display: flex; */
+    justify-content: center;
+    flex-direction: column;
+  }
 `;
 
 export const InfoColumn = styled.div`

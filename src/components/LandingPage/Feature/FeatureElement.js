@@ -67,6 +67,10 @@ export const Info = styled.div`
   align-items: center;
   color: black;
   text-align: center;
+
+  @media screen and (max-width: 960px) {
+    margin: 30px;
+  }
 `;
 
 export const Title = styled.h3`
@@ -97,4 +101,9 @@ export const Button = styled.button`
   &:hover {
     transform: scale(1.05);
   }
+`;
+
+export const Img = styled.img`
+  height: 39vh;
+  width: 19vw;
 `;
