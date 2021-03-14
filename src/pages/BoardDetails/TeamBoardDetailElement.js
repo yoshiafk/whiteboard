@@ -20,6 +20,7 @@ export const DetailWrapper = styled.div`
 `;
 export const DetailTop = styled.div`
   display: flex;
+  /* position: fixed; */
   // justify-content: space-between;
   height: auto;
   padding: 8px 4px 4px 8px;
