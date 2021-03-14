@@ -1,0 +1,30 @@
+.board-container {
+  margin: 20px;
+  margin-left: 30px;
+}
+
+.page-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 30px 0px;
+}
+
+.board-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.board-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 28px;
+  color: #363636;
+  margin-bottom: 24px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48px;
+}

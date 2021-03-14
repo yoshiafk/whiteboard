@@ -1,0 +1,26 @@
+.screenindex-container {
+  min-height: 200vh;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  transition: left 0.3s ease-in-out;
+  /* background-color: lightgray; */
+  margin-top: 80px;
+  margin-left: 50px;
+}
+
+.content.open {
+  left: 300px;
+  margin-left: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .content.open {
+    left: 123px;
+  }
+}

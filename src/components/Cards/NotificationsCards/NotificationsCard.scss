@@ -1,0 +1,82 @@
+.NotifCard-container {
+  border: 1px solid #e1e1e1;
+  /* padding-top: 30px;
+  padding-bottom: 10px; */
+  padding-left: 50px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 25vw;
+  height: 10vh;
+  cursor: pointer;
+}
+
+.NotifCard-container:active {
+  transform: translateY(4px);
+  border: none;
+  outline: none;
+}
+
+.NotifCard-content-container {
+  background-color: white;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 10px;
+  align-content: center;
+
+  /* padding-top: 50px; */
+}
+
+.NotifCard-content-container:hover {
+  background-color: rgb(241, 240, 240);
+}
+
+.NotifCard-container-projectname {
+  font-size: 14px;
+  font-weight: 700;
+  color: #363636;
+  padding-bottom: 10px;
+}
+
+.NotifCard-container-projectteam {
+  font-size: 12px;
+  font-weight: 400;
+  color: #80848d;
+  padding-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 2vw;
+}
+
+.Notif-detail {
+  display: flex;
+}
+
+.Notif-type {
+  margin-right: 5px;
+}
+
+// .BoardsCard-container-quicklinks {
+//   font-size: 14px;
+//   font-weight: 700;
+//   color: #c2c3c6;
+//   padding-bottom: 10px;
+// }
+
+// .BoardsCard-container p {
+//   font-size: 14px;
+//   font-weight: 400;
+//   color: #363636;
+//   padding-bottom: 10px;
+// }
+
+@media screen and (max-width: 600px) {
+  .NotifCard-content-container {
+    width: 150px;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 770px) {
+  .NotifCard-content-container {
+    width: 150px;
+  }
+}

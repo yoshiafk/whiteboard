@@ -1,0 +1,48 @@
+.tasks-container {
+  margin: 20px;
+  margin-left: 30px;
+}
+
+.tasks-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 30px 0px;
+}
+
+.tasks-assignedtouser-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+hr {
+  margin: 10px 40px 10px 0px;
+}
+
+.tasks-assignedtouser-todo {
+  margin-top: 20px;
+  color: #c2c3c6;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#tasks-loadmore {
+  margin-top: 30px;
+  padding: 10px 50px;
+  border: none;
+  background-color: #eff1ff;
+  border-radius: 35px;
+  cursor: pointer;
+  color: #4859ef;
+  font-size: 14px;
+  font-weight: bold;
+  outline: none;
+}
+
+#tasks-loadmore:hover {
+  background-color: #c4cbfb;
+}
+
+#tasks-loadmore:active {
+  transform: translateY(4px);
+  border: none;
+}

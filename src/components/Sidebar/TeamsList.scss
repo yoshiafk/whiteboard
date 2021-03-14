@@ -1,0 +1,19 @@
+.TeamList-link-name {
+  padding: 10px 5px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #363636;
+}
+
+.TeamList-link-name.active {
+  background-color: #e1e1e1;
+  border-radius: 4px;
+  width: 220px;
+}
+
+@media screen and (max-width: 600px) {
+  .TeamList-link-name.active {
+    width: 19vw;
+  }
+}

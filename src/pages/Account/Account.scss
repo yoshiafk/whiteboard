@@ -1,0 +1,475 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap");
+
+.Account-background-page {
+  position: absolute;
+  background-color: #e5e5e5;
+  width: 100%;
+  height: 120%;
+}
+
+.Account-container {
+  background-color: #fff;
+  width: 900px;
+  height: 100%;
+  left: 310px;
+  position: absolute;
+  box-sizing: border-box;
+  display: grid;
+}
+
+.Upper-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -40px;
+  margin-bottom: 150px;
+}
+.Your-photo {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  color: #363636;
+}
+
+.Profile-photo {
+  width: 150px;
+  height: 150px;
+  margin: 20px 0px;
+}
+
+.profile-photo-show {
+  position: absolute;
+  left: 352px;
+  width: 150px;
+  height: 150px;
+  margin: 20px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.select-new-photo {
+  position: absolute;
+  left: 354px;
+  bottom: 605px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Selected-upload-photo {
+  color: #4d6de3;
+  text-decoration: none;
+  border: none;
+  border-radius: 35px;
+  background-color: #eff1ff;
+  text-align: center;
+  cursor: pointer;
+  height: 40px;
+  width: 122px;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 5px;
+  margin-bottom: -4px;
+
+  position: absolute;
+  left: 383px;
+  bottom: 605px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Upload-photo-text {
+  text-decoration: none;
+}
+
+.Account-details-container {
+  position: absolute;
+  bottom: 440px;
+  left: 78px;
+  display: flex;
+  justify-content: center;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #363636;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.Account-details-A {
+  float: left;
+  display: grid;
+  justify-content: space-around;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.Account-details-B {
+  float: right;
+  display: grid;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.Account-details-label {
+  padding-left: 9px;
+}
+
+.Account-details-input {
+  background: #ffffff;
+  border: 1px solid #e1e1e1;
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding-left: 5px;
+  width: 330px;
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #363636;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.Submit-change-profile {
+  color: #4d6de3;
+  text-decoration: none;
+  border: none;
+  border-radius: 35px;
+  background-color: #eff1ff;
+  text-align: center;
+  cursor: pointer;
+  height: 40px;
+  width: 122px;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 5px;
+  margin-bottom: -4px;
+
+  position: absolute;
+  left: 300px;
+  top: 165px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Submit-change-profile:hover {
+  background-color: rgb(220, 222, 240);
+}
+
+.line1 {
+  position: absolute;
+  border: 0;
+  background-color: #e1e1e1;
+  height: 1px;
+  width: 705px;
+  bottom: 330px;
+  left: 95px;
+}
+
+.bottom-part1 {
+  display: flex;
+  flex-direction: row;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: #363636;
+}
+
+.Account-email-details {
+  position: absolute;
+  bottom: 268px;
+  left: 100px;
+}
+
+.Change-email-btn {
+  position: Absolute;
+  right: 100px;
+  bottom: 275px;
+  color: #ff9e57;
+  text-decoration: none;
+  border: none;
+  border-radius: 35px;
+  background-color: #ffeee1;
+  text-align: center;
+  cursor: pointer;
+  height: 40px;
+  width: 116px;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.line2 {
+  position: absolute;
+  border: 0;
+  background-color: #e1e1e1;
+  height: 1px;
+  width: 705px;
+  bottom: 240px;
+  left: 95px;
+}
+
+.bottom-part2 {
+  display: flex;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: bolder;
+  font-style: normal;
+  font-size: 14px;
+  color: #363636;
+}
+
+.Account-password-details {
+  position: absolute;
+  bottom: 198px;
+  left: 100px;
+}
+
+.Change-password-btn {
+  position: absolute;
+  right: 100px;
+  bottom: 185px;
+  color: #ff9e57;
+  text-decoration: none;
+  border: none;
+  border-radius: 35px;
+  background-color: #ffeee1;
+  text-align: center;
+  cursor: pointer;
+  height: 40px;
+  width: 116px;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.line3 {
+  position: absolute;
+  border: 0;
+  background-color: #e1e1e1;
+  height: 1px;
+  width: 705px;
+  bottom: 150px;
+  left: 95px;
+}
+
+.bottom-part3 {
+  display: flex;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: bolder;
+  font-style: normal;
+  font-size: 14px;
+  color: #363636;
+}
+
+.Delete-your-account {
+  position: absolute;
+  bottom: 108px;
+  left: 100px;
+}
+
+.Delete-account-btn {
+  position: absolute;
+  right: 100px;
+  bottom: 90px;
+  color: #ff9e57;
+  text-decoration: none;
+  border: none;
+  border-radius: 35px;
+  background-color: #ffeee1;
+  text-align: center;
+  cursor: pointer;
+  height: 40px;
+  width: 116px;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+/* ==========================================
+              MODAL CONTAINER
+==========================================*/
+.modal-container {
+  position: absolute;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsla(100, 4%, 15%, 0.185);
+  z-index: 99;
+  outline: none;
+}
+
+.modal-overlay-center {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(100, 4%, 15%, 0.185);
+  z-index: 99;
+  outline: none;
+}
+
+.Account-modal-container {
+  background-color: white;
+  border-radius: 10px;
+  height: 45vh;
+  max-width: 550px;
+  padding: 28px 30px;
+  border: none;
+  outline: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-container:focus {
+  outline: none;
+}
+
+.Account-modal-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: rgb(177, 175, 175);
+  border: none;
+  outline: none;
+}
+
+.Account-modal-form-input {
+  border: none;
+  background-color: #f1f3f4;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-size: 16px;
+
+  padding: 20px;
+  border-radius: 20px;
+  height: 50px;
+  width: 480px;
+  outline: none;
+}
+
+.change-password-form-submit {
+  margin-top: 10px;
+  background-color: #4d6de3;
+  cursor: pointer;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  height: 50px;
+  margin-top: 30px;
+}
+
+.change-password-form-submit:hover {
+  margin-top: 10px;
+  background-color: #1b2f77;
+  cursor: pointer;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  height: 50px;
+  margin-top: 30px;
+  transition: 0.3s;
+}
+
+.change-email-form-input {
+  border: none;
+  background-color: #f1f3f4;
+  margin-bottom: 15px;
+  font-size: 16px;
+  padding: 20px;
+  border-radius: 20px;
+  height: 48px;
+  outline: none;
+}
+
+.Account-modal-form-submit {
+  margin-top: 10px;
+  background-color: #4d6de3;
+  cursor: pointer;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
+
+.change-email_h1 {
+  color: #000000;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  text-align: center;
+  outline: none;
+}
+
+.change-password_h1 {
+  color: #000000;
+  margin-top: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.delete_account_h1 {
+  color: #000000;
+
+  padding-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.delete_account_p {
+  margin: 15px 0px;
+  text-align: justify;
+  padding-bottom: 10px;
+}
+
+.delete-account-form-submit {
+  margin-top: 10px;
+  background-color: #4d6de3;
+  cursor: pointer;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  height: 50px;
+}

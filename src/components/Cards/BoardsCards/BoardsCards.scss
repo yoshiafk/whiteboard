@@ -1,0 +1,13 @@
+.BoardsCards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+  margin: 20px auto;
+  width: 90vw;
+}
+
+@media screen and (max-width: 600px) {
+  .BoardsCards-container {
+    width: 206vw;
+  }
+}

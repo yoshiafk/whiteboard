@@ -1,25 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from "./globalStyles";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { publicRoutes, privateRoutes } from "./Routes";
+import { useSelector } from "react-redux";
+import NewTaskModal from "./components/BoardDetails/Modal/NewTaskModal";
+// import ScreenIndex from "./pages/ScreenIndex";
 
 function App() {
+  const isAuthenticated = useSelector((state) => state.auths.isAuthenticated);
+  const userid = localStorage.getItem("token");
+  console.log(isAuthenticated);
+  console.log(userid);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <NewTaskModal />
+    <Router>
+      <GlobalStyle />
+      <Switch>
+        {localStorage.getItem("token") ? (
+          <>
+            {privateRoutes.map((route, index) => (
+              <Route
+                exact={route.exact}
+                path={route.path}
+                component={route.component}
+                key={index}
+              />
+            ))}
+          </>
+        ) : (
+          <>
+            {publicRoutes.map((route, index) => (
+              <Route
+                exact={route.exact}
+                path={route.path}
+                component={route.component}
+                key={index}
+              />
+            ))}
+          </>
+        )}
+      </Switch>
+    </Router>
   );
 }
 

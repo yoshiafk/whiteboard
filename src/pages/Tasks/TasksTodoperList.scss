@@ -1,0 +1,38 @@
+.taskstodoperlist-container {
+  margin-top: 20px;
+  margin-right: 50px;
+}
+
+.taskstodoperlist-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.taskstodoperlist-withcheckbox input {
+  margin-right: 20px;
+}
+
+.taskstodoperlist-head-title {
+  color: #363636;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.taskstodoperlist-head-due {
+  color: #80848d;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.taskstodoperlist-detail {
+  display: flex;
+  color: #80848d;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 35px;
+}
+
+.taskstodoperlist-detail-type {
+  margin-right: 15px;
+}

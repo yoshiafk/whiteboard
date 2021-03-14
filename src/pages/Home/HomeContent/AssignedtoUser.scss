@@ -1,0 +1,36 @@
+.assignedtouser-container {
+  margin-top: 40px;
+  padding-left: 40px;
+}
+
+.assignedtouser-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+hr {
+  margin: 10px 40px 10px 0px;
+}
+
+.assignedtouser-todo {
+  margin-top: 20px;
+  color: #c2c3c6;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.assignedtouser-todolist {
+  margin: 25px 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .assignedtouser-container {
+    width: 205vw;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 770px) {
+  .assignedtouser-container {
+    width: 137vw;
+  }
+}
