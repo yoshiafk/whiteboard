@@ -64,12 +64,20 @@ const TeamBoardDetails = (props) => {
 
   // console.log("List =>", props.list);
 
-  const data = RANDOM_USERS.map((d) => ({
+  let userFromTeam = props.teamList[0].userId;
+  console.log("user From Team", userFromTeam);
+  const data = userFromTeam.map((d) => ({
     email: d.email,
     key: d.email,
     name: d.name,
     href: "#",
   }));
+  // const data = RANDOM_USERS.map((d) => ({
+  //   email: d.email,
+  //   key: d.email,
+  //   name: d.name,
+  //   href: "#",
+  // }));
 
   const onDragEnd = ({ source, destination, type }) => {
     if (!destination) return;
@@ -204,7 +212,7 @@ const TeamBoardDetails = (props) => {
 
 const mstp = (state) => {
   return {
-    // list: state.allList.list,
+    teamList: state.teamListReducer.teamList,
     list: state.allList.list.filter((x) => {
       return x.boardId.length > 0
         ? x.boardId[0]._id === state.SelectedBoard.selectedBoard.id
