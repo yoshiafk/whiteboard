@@ -64,14 +64,14 @@ const TeamBoardDetails = (props) => {
 
   // console.log("List =>", props.list);
 
-  let userFromTeam = props.teamList[0].userId;
-  console.log("user From Team", userFromTeam);
-  const data = userFromTeam.map((d) => ({
-    email: d.email,
-    key: d.email,
-    name: d.name,
-    href: "#",
-  }));
+  // let userFromTeam = props.teamList[0].userId;
+  // console.log("user From Team", userFromTeam);
+  // const data = userFromTeam.map((d) => ({
+  //   email: d.email,
+  //   key: d.email,
+  //   name: d.name,
+  //   href: "#",
+  // }));
   // const data = RANDOM_USERS.map((d) => ({
   //   email: d.email,
   //   key: d.email,
@@ -132,12 +132,12 @@ const TeamBoardDetails = (props) => {
               </TopLeft>
               <TopRight>
                 <User>
-                  <AvatarGroup
+                  {/* <AvatarGroup
                     maxCount="5"
                     appearance="stack"
                     size="medium"
                     data={data}
-                  />
+                  /> */}
                 </User>
                 <Modal
                   className="Modal-invite-container"
