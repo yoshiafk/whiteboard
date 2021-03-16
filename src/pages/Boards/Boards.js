@@ -17,7 +17,7 @@ const Boards = (props) => {
   );
 
   let projects = filteredboard;
-  console.log("projects", projects);
+  // console.log("projects", projects);
   const teamSearchColor = () => {
     let o = Math.round,
       r = Math.random,

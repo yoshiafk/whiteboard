@@ -123,4 +123,4 @@ const mapDispatchtoProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps)(TeamBoardsIndex);
+export default connect(mapStateToProps, mapDispatchtoProps)(TeamBoardsIndex);

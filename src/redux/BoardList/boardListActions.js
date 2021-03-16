@@ -1,4 +1,4 @@
-import { GET_BOARD, ADD_BOARD } from "./boardListTypes";
+import { GET_BOARD, ADD_BOARD, SET_LOADING } from "./boardListTypes";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -17,6 +17,59 @@ import Swal from "sweetalert2";
 //       });
 //     })
 //     .catch((err) => console.log(err));
+// };
+
+export const setLoading = (payload) => {
+  return {
+    type: SET_LOADING,
+    payload: payload,
+  };
+};
+
+// export const addBoard = (body, token) => async (dispatch) => {
+//   let isLoading = true;
+//   dispatch(setLoading(isLoading));
+
+//   const config = {
+//     headers: { Authorization: `Bearer ${token}` },
+//   };
+
+//   try {
+//     const res = await axios.post(
+//       `https://whiteboard-team.herokuapp.com/api/board`,
+//       body,
+//       config
+//     );
+//     if (res.status === 200) {
+//       dispatch((board) => {
+//         dispatch({
+//           type: ADD_BOARD,
+//           payload: board.data.data,
+//         });
+//         let isLoading = false;
+//         dispatch(setLoading(isLoading));
+//         Swal.fire(
+//           "",
+//           `New board: ${board.data.data.title} is created!`,
+//           "success",
+//           {
+//             buttons: false,
+//             timer: 1500,
+//           }
+//         );
+//       });
+//     } else if (res.status !== 200) {
+//       Swal.fire("", "error", "Failed");
+//     }
+//   } catch (err) {
+//     let isLoading = false;
+//     dispatch(setLoading(isLoading));
+//     Swal.fire({
+//       icon: "error",
+//       title: "Oops...",
+//       text: "failed to create board",
+//     });
+//   }
 // };
 
 export const addBoard = (body, token) => (dispatch) => {

@@ -12,8 +12,8 @@ export default function ForgotPassword(props) {
   const dispatch = useDispatch();
 
   const { forgotPassword, jwtToken } = useSelector((state) => state.auths);
-  console.log("response forgotPassword", forgotPassword);
-  console.log(userForgotPassword);
+  // console.log("response forgotPassword", forgotPassword);
+  // console.log(userForgotPassword);
 
   const handleForgotPassword = (event) => {
     setForgotPassword({

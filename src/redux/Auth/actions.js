@@ -1,5 +1,5 @@
 import axios from "axios";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 import Swal from "sweetalert2";
 import {
   POST_SIGNUP,
@@ -8,6 +8,7 @@ import {
   POST_FORGOTPASSWORD,
   PATCH_RESETPASSWORD,
   POST_GOOGLE,
+  SET_LOADING,
 } from "./types";
 
 import {
@@ -26,8 +27,17 @@ export const setToken = (token) => {
   };
 };
 
+export const setLoading = (payload) => {
+  return {
+    type: SET_LOADING,
+    payload: payload,
+  };
+};
+
 export const postSignUp = (body) => async (dispatch) => {
   console.log(body, "body action");
+  let isLoading = true;
+  dispatch(setLoading(isLoading));
   try {
     const res = await axios.post(`${SIGNUP_AUTH_API_URL}`, body);
     if (res.status === 201) {
@@ -36,6 +46,8 @@ export const postSignUp = (body) => async (dispatch) => {
         payload: res.data.token,
         token: localStorage.setItem("token", res.data.token),
       });
+      let isLoading = false;
+      dispatch(setLoading(isLoading));
       Swal.fire("", "Signup Success!", "success", {
         buttons: false,
         timer: 1500,
@@ -46,6 +58,8 @@ export const postSignUp = (body) => async (dispatch) => {
       Swal.fire("", "error", "Check your email/password");
     }
   } catch (err) {
+    let isLoading = false;
+    dispatch(setLoading(isLoading));
     Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -56,6 +70,8 @@ export const postSignUp = (body) => async (dispatch) => {
 
 export const postLogIn = (body) => async (dispatch) => {
   console.log(body, "body action");
+  let isLoading = true;
+  dispatch(setLoading(isLoading));
   try {
     const res = await axios.post(`${LOGIN_AUTH_API_URL}`, body);
     if (res.status === 200) {
@@ -64,6 +80,8 @@ export const postLogIn = (body) => async (dispatch) => {
         payload: res.data.token,
         token: localStorage.setItem("token", res.data.token),
       });
+      let isLoading = false;
+      dispatch(setLoading(isLoading));
       Swal.fire("", "Login Success!", "success", {
         buttons: false,
         timer: 1500,
@@ -74,6 +92,8 @@ export const postLogIn = (body) => async (dispatch) => {
       Swal.fire("", "error", "Check your email and password!");
     }
   } catch (err) {
+    let isLoading = false;
+    dispatch(setLoading(isLoading));
     Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -84,7 +104,7 @@ export const postLogIn = (body) => async (dispatch) => {
 
 export const postForgotPassword = (body) => async (dispatch) => {
   axios.post(`${FORGOT_PASSWORD_API_URL}`, body).then((res) => {
-    console.log("isi res =>", res);
+    // console.log("isi res =>", res);
     dispatch({
       type: POST_FORGOTPASSWORD,
       payload: localStorage.getItem("token"),
@@ -99,7 +119,7 @@ export const patchResetPassword = (body) => async (dispatch) => {
       body
     )
     .then((res) => {
-      console.log("isi res =>", res);
+      // console.log("isi res =>", res);
       dispatch({
         type: PATCH_RESETPASSWORD,
         payload: localStorage.getItem("token"),
@@ -115,7 +135,7 @@ export const setDataToken = () => (dispatch) => {
 };
 
 export const googleLoginTry = (data) => async (dispatch) => {
-  console.log(data, "data action");
+  // console.log(data, "data action");
   try {
     const res = await axios.get(`${GOOGLE_API_URL}`, data);
     if (res.status === 200) {
@@ -139,7 +159,7 @@ export const googleLoginTry = (data) => async (dispatch) => {
 };
 
 export const facebookTry = (data) => async (dispatch) => {
-  console.log(data, "data action");
+  // console.log(data, "data action");
   try {
     const res = await axios.get(`${FACEBOOK_API_URL}`, data);
     if (res.status === 200) {

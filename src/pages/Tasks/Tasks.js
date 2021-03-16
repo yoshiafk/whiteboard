@@ -8,21 +8,21 @@ const Tasks = (props) => {
   let arrayForHoldingPosts = [];
   const [postsToShow, setPostsToShow] = useState([]);
   const postsPerPage = todos.length > 10 ? 10 : todos.length;
-  console.log(todos.length);
+  // console.log(todos.length);
 
   const ref = useRef(postsPerPage);
 
   const loopWithSlice = (start, end) => {
     const slicedPosts = todos.slice(start, end);
     arrayForHoldingPosts = arrayForHoldingPosts.concat(slicedPosts);
-    setPostsToShow(arrayForHoldingPosts);
+    setPostsToShow(postsToShow.concat(arrayForHoldingPosts));
   };
 
   useEffect(() => {
     loopWithSlice(0, postsPerPage);
   }, []);
 
-  console.log(postsToShow.length);
+  // console.log(postsToShow.length);
 
   const handleShowMorePosts = () => {
     loopWithSlice(ref.current, ref.current + postsPerPage);

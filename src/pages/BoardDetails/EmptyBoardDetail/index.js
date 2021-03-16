@@ -31,8 +31,8 @@ import NewListModal from "../../../components/BoardDetails/Modal/NewListModal";
 export const MODAL_INVITE = 1;
 
 const TeamBoardDetails = (props) => {
-  console.log("cape deh list");
-  console.log(props.list);
+  // console.log("cape deh list");
+  // console.log(props.list);
 
   const dispatch = useDispatch();
 
@@ -51,7 +51,7 @@ const TeamBoardDetails = (props) => {
 
   const submitInvite = () => {
     // dispatch(deleteAccount(token));
-    console.log(props.allList);
+    // console.log(props.allList);
   };
 
   function toggleModal() {
@@ -62,7 +62,7 @@ const TeamBoardDetails = (props) => {
     props.getListAction();
   }, [props.allList]);
 
-  console.log("List =>", props.list);
+  // console.log("List =>", props.list);
 
   const data = RANDOM_USERS.map((d) => ({
     email: d.email,
@@ -73,8 +73,8 @@ const TeamBoardDetails = (props) => {
 
   const onDragEnd = ({ source, destination, type }) => {
     if (!destination) return;
-    console.log("source", source);
-    console.log("destionation", destination);
+    // console.log("source", source);
+    // console.log("destionation", destination);
     // Move list
     if (type === "list") {
       // Prevent update if nothing has changed

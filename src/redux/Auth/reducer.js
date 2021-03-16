@@ -5,6 +5,7 @@ import {
   POST_FORGOTPASSWORD,
   PATCH_RESETPASSWORD,
   POST_GOOGLE,
+  SET_LOADING,
 } from "./types";
 
 const initialState = {
@@ -17,12 +18,18 @@ const initialState = {
   status: null,
   uploadImg: null,
   isAuthenticated: localStorage.getItem("token") ? true : false,
+  isAuthLoading: false,
 };
 
 const authReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case SET_LOADING:
+      return {
+        ...state,
+        isAuthLoading: payload,
+      };
     case POST_SIGNUP:
       return {
         ...state,

@@ -12,8 +12,8 @@ export default function ResetPassword() {
   const dispatch = useDispatch();
 
   const { resetPassword, jwtToken } = useSelector((state) => state.auths);
-  console.log("response resetPassword", resetPassword);
-  console.log(resetPassword);
+  // console.log("response resetPassword", resetPassword);
+  // console.log(resetPassword);
 
   const handleResetPassword = (event) => {
     setResetPassword({

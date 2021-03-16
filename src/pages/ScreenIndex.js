@@ -40,6 +40,16 @@ const ScreenIndex = (props) => {
     }
 
     props.getTodos(teamList_id);
+  }, [props.teamList]);
+
+  useEffect(() => {
+    let teamList_id = [];
+
+    for (let i = 0; i < props.teamList.length; i++) {
+      teamList_id.push(props.teamList[i]._id);
+    }
+
+    props.getTodos(teamList_id);
   }, [props.Todos]);
 
   return (
@@ -85,6 +95,7 @@ const mapStateToProps = (state) => {
     boardList: state.boardListReducer.boardList,
     teamList: state.teamListReducer.teamList,
     selectedTeam: state.SelectedTeam.selectedTeam,
+    todos: state.Todos,
   };
 };
 

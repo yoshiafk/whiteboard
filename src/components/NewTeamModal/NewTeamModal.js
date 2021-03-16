@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-modal";
 import { BiPlus } from "react-icons/bi";
 import "./NewTeamModal.scss";
@@ -31,22 +31,18 @@ const NewTeamModal = (props) => {
     props.toggleNewTeamModal();
   };
 
-  // console.log(props.projects);
   return (
     <div style={{ marginTop: "-20px", cursor: "pointer" }}>
       <BiPlus onClick={props.toggleNewTeamModal} />
       <Modal
         isOpen={props.newTeamModalIsOpen}
-        // onRequestClose={props.toggleModal}
         style={{
           content: {
             marginTop: "5%",
             height: "60vh",
             marginRight: "20%",
             marginLeft: "20%",
-            // marginBottom: "5%",
             position: "fixed",
-            // zIndex: 9999,
           },
           overlay: { zIndex: 3 },
         }}

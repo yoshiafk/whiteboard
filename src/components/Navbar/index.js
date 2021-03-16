@@ -65,6 +65,8 @@ const Navbar = (props) => {
                   onClick={() => {
                     localStorage.removeItem("token");
                     window.open("/", "_self");
+                    localStorage.removeItem("state");
+                    // window.reload();
                   }}
                 >
                   Logout

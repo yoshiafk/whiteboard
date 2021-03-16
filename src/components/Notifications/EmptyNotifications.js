@@ -7,7 +7,7 @@ import { toggleNotificationModal } from "../../redux/Notification/notificationMo
 import EmptyNotif from "../../assets/EmptyNotif.jpg";
 
 const EmptyNotifications = (props) => {
-  console.log(props.notificationModalIsOpen);
+  // console.log(props.notificationModalIsOpen);
 
   const notificationModalIsOpen = props.notificationModalIsOpen
     ? "section"

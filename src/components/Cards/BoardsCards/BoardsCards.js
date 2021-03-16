@@ -16,14 +16,6 @@ const BoardsCards = (props) => {
     _teamlist.includes(x.teamId[0])
   );
 
-  // let filteredlist = props.List.filter((x) =>
-  //   filteredboard.includes(x.boardId[0])
-  // );
-
-  // let filteredcard = props.cardList.filter((x) =>
-  //   filteredlist.includes(x.ListId[0])
-  // );
-
   let projects = filteredboard;
 
   const teamSearchColor = () => {
@@ -63,8 +55,6 @@ const BoardsCards = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    // projects: state.TeamList.projects,
-    // projectnames: state.ProjectsPerTeam.projectnames,
     teamList: state.teamListReducer.teamList,
     boardList: state.boardListReducer.boardList,
   };

@@ -20,7 +20,6 @@ const NewListModal = (props) => {
     props.toggleNewList();
   };
 
-  // console.log(props.projects);
   return (
     <div style={{ marginTop: "-20px", cursor: "pointer" }}>
       <span className="new_list-container">
@@ -33,7 +32,6 @@ const NewListModal = (props) => {
       </span>
       <Modal
         isOpen={props.newListIsOpen}
-        // onRequestClose={props.toggleModal}
         style={{
           content: {
             marginTop: "10%",
@@ -41,9 +39,7 @@ const NewListModal = (props) => {
             width: "55vw",
             marginRight: "20%",
             marginLeft: "20%",
-            // marginBottom: "5%",
             position: "fixed",
-            // zIndex: 9999,
           },
           overlay: { zIndex: 5 },
         }}
@@ -91,7 +87,6 @@ const NewListModal = (props) => {
 const mstp = (state) => {
   return {
     newListIsOpen: state.newListModal.newListIsOpen,
-    // projects: state.TeamList.projects,
     selectedBoard: state.SelectedBoard.selectedBoard,
   };
 };

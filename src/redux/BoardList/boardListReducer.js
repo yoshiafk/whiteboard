@@ -1,7 +1,8 @@
-import { ADD_BOARD, GET_BOARD } from "./boardListTypes";
+import { ADD_BOARD, GET_BOARD, SET_LOADING } from "./boardListTypes";
 
 const initialState = {
   boardList: [],
+  isBoardLoading: false,
 };
 
 const boardListReducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ const boardListReducer = (state = initialState, action) => {
       return {
         ...state,
         boardList: [...state.boardList, action.payload],
+      };
+    case SET_LOADING:
+      return {
+        ...state,
+        isBoardLoading: action.payload,
       };
     default:
       return state;

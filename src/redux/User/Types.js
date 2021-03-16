@@ -4,3 +4,4 @@ export const UPLOAD_PROFPIC = "UPLOAD_PROFPIC";
 export const PATCH_USERDATA = "PATCH_USERDATA";
 export const PATCH_NEWPASSWORD = "PATCH_NEWPASSWORD";
 export const SET_TOKEN = "SET_TOKEN";
+export const SET_LOADING = "SET_LOADING";

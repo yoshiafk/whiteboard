@@ -1,6 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 import {
   DELETE_ACCOUNT,
   GET_USERDATA,
@@ -8,6 +8,7 @@ import {
   PATCH_USERDATA,
   PATCH_NEWPASSWORD,
   SET_TOKEN,
+  SET_LOADING,
 } from "./Types";
 
 import {
@@ -23,6 +24,13 @@ export const setToken = (token) => {
   };
 };
 
+export const setLoading = (payload) => {
+  return {
+    type: SET_LOADING,
+    payload: payload,
+  };
+};
+
 export const getUserData = (token) => async (dispatch) => {
   const config = {
     headers: { Authorization: `Bearer ${token}` },
@@ -30,7 +38,7 @@ export const getUserData = (token) => async (dispatch) => {
   axios
     .get(`${USERDATA_API_URL}`, config)
     .then((res) => {
-      console.log("response getUserData", res);
+      // console.log("response getUserData", res);
       if (res.status === 200) {
         dispatch({
           type: GET_USERDATA,
@@ -50,7 +58,7 @@ export const uploadPhoto = (token, data) => (dispatch) => {
   axios
     .patch(`${USERDATA_API_URL}`, data, config)
     .then((res) => {
-      console.log("coba", res);
+      // console.log("coba", res);
       dispatch({
         type: UPLOAD_PROFPIC,
         payload: res.data.photo,
@@ -62,6 +70,8 @@ export const uploadPhoto = (token, data) => (dispatch) => {
 };
 
 export const patchUserData = (token, data) => async (dispatch) => {
+  let isLoading = true;
+  dispatch(setLoading(isLoading));
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
@@ -72,6 +82,8 @@ export const patchUserData = (token, data) => async (dispatch) => {
         type: PATCH_USERDATA,
         payload: res.data,
       });
+      let isLoading = false;
+      dispatch(setLoading(isLoading));
       Swal.fire("", "Change Applied!", "success", {
         buttons: false,
         timer: 1500,
@@ -82,6 +94,8 @@ export const patchUserData = (token, data) => async (dispatch) => {
       Swal.fire("", "error", "Re-check your new information");
     }
   } catch (err) {
+    let isLoading = false;
+    dispatch(setLoading(isLoading));
     Swal.fire({
       icon: "error",
       title: "Oops...",

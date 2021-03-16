@@ -114,6 +114,8 @@
   border: none;
   height: 43px;
   width: 289px;
+
+  outline:none;
 }
 
 //modal newtask
@@ -164,6 +166,7 @@
   margin: 0px 15px;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .newtask-form-input {
@@ -255,6 +258,7 @@
   border: none;
   height: 38px;
   width: 149px;
+  outline:none;
 }
 
 .Newtask-form-cancel {
@@ -264,6 +268,7 @@
   background-color: #eff1ff;
   color: #4859ef;
   cursor: pointer;
+  outline:none;
 
   padding: 8px 16px;
   border-radius: 20px;

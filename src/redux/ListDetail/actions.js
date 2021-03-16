@@ -8,7 +8,7 @@ export const getAllList = () => (dispatch) => {
     .get(`${BASE_URL_AUTH}/list`)
     .then((list) => {
       if (list.status === 200) {
-        console.log("data from LIST =>", list.data.data);
+        // console.log("data from LIST =>", list.data.data);
         dispatch({
           type: GET_LIST,
           payload: list.data.data,

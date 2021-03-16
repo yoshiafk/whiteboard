@@ -5,8 +5,8 @@ import {
   facebookTry,
   postLogIn,
 } from "../../redux/Auth/actions";
-import GoogleLogin, { useGoogleLogin } from "react-google-login";
-import { refreshTokenSetup } from "../../constant/RefreshToken";
+// import GoogleLogin, { useGoogleLogin } from "react-google-login";
+// import { refreshTokenSetup } from "../../constant/RefreshToken";
 import jwt_decode from "jwt-decode";
 import _ from "lodash";
 import axios from "axios";
@@ -15,6 +15,7 @@ import "./Signin.scss";
 import googleLogo from "../../assets/GoogleLogo.png";
 import facebookLogo from "../../assets/FacebookLogo.png";
 import LogoBW from "../../assets/LogoBW.png";
+import Loading from "../../components/LoadingBar/loading";
 
 export default function Signin(props) {
   const [userLogin, setUserLogin] = useState({
@@ -24,11 +25,8 @@ export default function Signin(props) {
   });
 
   const dispatch = useDispatch();
-
+  const isAuthLoading = useSelector((state) => state.auths.isAuthLoading);
   const { logIn, jwtToken } = useSelector((state) => state.auths);
-  console.log("response logIn", logIn);
-  console.log(userLogin);
-
   const token = localStorage.getItem("token");
   let decoded;
   if (token && !_.isEmpty(token)) decoded = jwt_decode(token);
@@ -77,7 +75,7 @@ export default function Signin(props) {
 
   const responseGoogle = async (response) => {
     if (response) {
-      console.log(response, "ini responsenya");
+      // console.log(response, "ini responsenya");
       const data = {
         // name: response.profileObj.name,
         // access_token: response.accessToken,
@@ -94,7 +92,7 @@ export default function Signin(props) {
 
   const responseFacebook = async (response) => {
     if (response) {
-      console.log(response, "ini responsenya");
+      // console.log(response, "ini responsenya");
       const data = {
         // name: response.profileObj.name,
         // access_token: response.accessToken,
@@ -168,11 +166,15 @@ export default function Signin(props) {
           </button>
         </div>
       </div>
+
       <div className="Signin-container">
-        <form onSubmit={submitLogIn} className="Signin-form">
-          <p className="Signin-sign">Sign in</p>
-          <div className="googleAndFacebook">
-            {/* <GoogleLogin
+        {isAuthLoading ? (
+          <Loading />
+        ) : (
+          <form onSubmit={submitLogIn} className="Signin-form">
+            <p className="Signin-sign">Sign in</p>
+            <div className="googleAndFacebook">
+              {/* <GoogleLogin
               clientId={clientId}
               buttonText="login with google"
               onSuccess={responseGoogle}
@@ -181,65 +183,66 @@ export default function Signin(props) {
               className="google-login"
             /> */}
 
+              <button
+                type="button"
+                className="Signin-google"
+                onClick={signInGoogle}
+              >
+                <img
+                  src={googleLogo}
+                  alt="google logo"
+                  className="google-logo"
+                ></img>
+                <p> Sign in with Google </p>
+              </button>
+
+              {/* <button onClick={submitCek}> cek </button> */}
+
+              <button
+                type="button"
+                className="Signin-facebook"
+                onClick={responseFacebook}
+              >
+                <img
+                  src={facebookLogo}
+                  alt="facebook logo"
+                  className="facebook-logo"
+                ></img>
+                <p>Sign in with Facebook </p>
+              </button>
+            </div>
+            <p className="orUseYourEmail">or use your email to sign in:</p>
+            <div className="input-container">
+              <input
+                className="form-input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={(event) => handleLogIn(event)}
+              />
+
+              <input
+                className="form-input"
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={(event) => handleLogIn(event)}
+              />
+            </div>
             <button
-              type="button"
-              className="Signin-google"
-              onClick={signInGoogle}
+              disabled={
+                userLogin.email == "" || userLogin.password == "" ? true : false
+              }
+              className="signin-form-submit"
+              type="submit"
             >
-              <img
-                src={googleLogo}
-                alt="google logo"
-                className="google-logo"
-              ></img>
-              <p> Sign in with Google </p>
+              Sign in
             </button>
-
-            {/* <button onClick={submitCek}> cek </button> */}
-
-            <button
-              type="button"
-              className="Signin-facebook"
-              onClick={responseFacebook}
-            >
-              <img
-                src={facebookLogo}
-                alt="facebook logo"
-                className="facebook-logo"
-              ></img>
-              <p>Sign in with Facebook </p>
-            </button>
-          </div>
-          <p className="orUseYourEmail">or use your email to sign in:</p>
-          <div className="input-container">
-            <input
-              className="form-input"
-              type="email"
-              name="email"
-              placeholder="Email"
-              onChange={(event) => handleLogIn(event)}
-            />
-
-            <input
-              className="form-input"
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={(event) => handleLogIn(event)}
-            />
-          </div>
-          <button
-            disabled={
-              userLogin.email == "" || userLogin.password == "" ? true : false
-            }
-            className="signin-form-submit"
-            type="submit"
-          >
-            Sign in
-          </button>
-          <a className="forgot-password" href="/forgotpassword">
-            Forgot Password
-          </a>
-        </form>
+            <a className="forgot-password" href="/forgotpassword">
+              Forgot Password
+            </a>
+          </form>
+        )}
       </div>
     </Fragment>
   );

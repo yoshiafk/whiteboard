@@ -1,11 +1,6 @@
 import axios from "axios";
 import { BASE_URL_AUTH } from "../../constant/Key";
-import {
-  GET_CARD,
-  HIT_REORDER_CARD,
-  HIT_REORDER_LIST,
-  POST_CARD,
-} from "./types";
+import { GET_CARD, POST_CARD } from "./types";
 import Swal from "sweetalert2";
 
 export const getCardTask = () => (dispatch) => {
@@ -13,7 +8,7 @@ export const getCardTask = () => (dispatch) => {
     .get(`${BASE_URL_AUTH}/card`)
     .then((response) => {
       if (response.status === 200) {
-        console.log("data from API =>", response.data.data);
+        // console.log("data from API =>", response.data.data);
         dispatch({
           type: GET_CARD,
           payload: response.data.data,
@@ -27,7 +22,7 @@ export const addCard = (body, boardId = null, teamId = null, listId = null) => (
   dispatch
 ) => {
   axios.post(`${BASE_URL_AUTH}/card`, body).then((card) => {
-    console.log(card);
+    // console.log(card);
     if (boardId)
       axios.put(`${BASE_URL_AUTH}/card/${card.data.data._id}/board`, {
         boardId: boardId.id,

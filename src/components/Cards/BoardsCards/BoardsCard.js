@@ -4,12 +4,6 @@ import "./BoardsCard.scss";
 
 const BoardsCard = (props) => {
   const filteredTeam = props.teamList.filter((x) => x._id === props.teamId[0]);
-  console.log("Filtered Team", filteredTeam);
-  console.log("Team List", props.teamList);
-  // const teamSearchColor = filteredTeam.find((y) => y.color);
-  // const teamColor = teamSearchColor.color;
-
-  // console.log(filteredTeam);
 
   return (
     <div
@@ -22,7 +16,7 @@ const BoardsCard = (props) => {
           on {filteredTeam[0].teamName}
         </div>
         <div className="BoardsCard-container-quicklinks">QUICK LINKS</div>
-        <p>My open tasks</p>
+        <p>Details Tasks</p>
         <p>Done</p>
       </div>
     </div>

@@ -9,6 +9,7 @@ import facebookLogo from "../../assets/FacebookLogo.png";
 import LogoBW from "../../assets/LogoBW.png";
 import "./Signup.scss";
 import axios from "axios";
+import Loading from "../../components/LoadingBar/loading";
 
 import _ from "lodash";
 import jwt_decode from "jwt-decode";
@@ -19,10 +20,10 @@ export default function Signup(props) {
     email: "",
     password: "",
   });
-
+  const isAuthLoading = useSelector((state) => state.auths.isAuthLoading);
   const { signup, jwtToken } = useSelector((state) => state.auths);
-  console.log("response signup", signup);
-  console.log(userData);
+  // console.log("response signup", signup);
+  // console.log(userData);
 
   const dispatch = useDispatch();
 
@@ -127,95 +128,100 @@ export default function Signup(props) {
           </button>
         </div>
       </div>
+
       <div className="Signup-container">
-        <form className="Signup-form">
-          <p className="Signup-sign"> Get started free today</p>
-          <div className="Signup-input-container">
-            <input
-              className="Signup-form-input"
-              type="text"
-              name="name"
-              placeholder="Name"
-              onChange={(event) => handleSignUp(event)}
-            />
+        {isAuthLoading ? (
+          <Loading />
+        ) : (
+          <form className="Signup-form">
+            <p className="Signup-sign"> Get started free today</p>
+            <div className="Signup-input-container">
+              <input
+                className="Signup-form-input"
+                type="text"
+                name="name"
+                placeholder="Name"
+                onChange={(event) => handleSignUp(event)}
+              />
 
-            <input
-              className="Signup-form-input"
-              type="email"
-              name="email"
-              placeholder="Email"
-              onChange={(event) => handleSignUp(event)}
-            />
+              <input
+                className="Signup-form-input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={(event) => handleSignUp(event)}
+              />
 
-            <input
-              className="Signup-form-input"
-              type="password"
-              name="password"
-              placeholder="Password 5+ characters"
-              onChange={(event) => handleSignUp(event)}
-            />
-          </div>
+              <input
+                className="Signup-form-input"
+                type="password"
+                name="password"
+                placeholder="Password 5+ characters"
+                onChange={(event) => handleSignUp(event)}
+              />
+            </div>
 
-          <div className="termsAndCondition">
-            <input
-              type="checkbox"
-              name="agreement"
-              id="agreement"
-              value="terms &amp; conditions "
-              onChange={() => setHasChecked((checked) => !checked)}
-            ></input>
-            <label for="agreement">
-              &nbsp;&nbsp;&nbsp; I agree with Whiteboard's terms &amp;
-              conditions{" "}
-            </label>
-          </div>
-
-          <button
-            className="signup-submit"
-            type="submit"
-            onClick={submitSignUp}
-            disabled={
-              userData.name == "" ||
-              userData.email == "" ||
-              userData.password == "" ||
-              hasChecked == false
-                ? true
-                : false
-            }
-          >
-            Sign up
-          </button>
-
-          <p className="orSignUp">or sign up with:</p>
-
-          <div className="googleAndFacebook">
-            <button
-              type="button"
-              className="Signup-google"
-              onClick={signInGoogle}
-            >
-              <img
-                src={googleLogo}
-                alt="google logo"
-                className="google-logo"
-              ></img>
-              <p> Sign in with Google </p>
-            </button>
+            <div className="termsAndCondition">
+              <input
+                type="checkbox"
+                name="agreement"
+                id="agreement"
+                value="terms &amp; conditions "
+                onChange={() => setHasChecked((checked) => !checked)}
+              ></input>
+              <label for="agreement">
+                &nbsp;&nbsp;&nbsp; I agree with Whiteboard's terms &amp;
+                conditions{" "}
+              </label>
+            </div>
 
             <button
-              type="button"
-              className="Signup-facebook"
-              onClick={signInFacebook}
+              className="signup-submit"
+              type="submit"
+              onClick={submitSignUp}
+              disabled={
+                userData.name == "" ||
+                userData.email == "" ||
+                userData.password == "" ||
+                hasChecked == false
+                  ? true
+                  : false
+              }
             >
-              <img
-                src={facebookLogo}
-                alt="facebook logo"
-                className="facebook-logo"
-              ></img>
-              <p>Sign in with Facebook </p>
+              Sign up
             </button>
-          </div>
-        </form>
+
+            <p className="orSignUp">or sign up with:</p>
+
+            <div className="googleAndFacebook">
+              <button
+                type="button"
+                className="Signup-google"
+                onClick={signInGoogle}
+              >
+                <img
+                  src={googleLogo}
+                  alt="google logo"
+                  className="google-logo"
+                ></img>
+                <p> Sign in with Google </p>
+              </button>
+
+              <button
+                type="button"
+                className="Signup-facebook"
+                onClick={signInFacebook}
+              >
+                <img
+                  src={facebookLogo}
+                  alt="facebook logo"
+                  className="facebook-logo"
+                ></img>
+                <p>Sign in with Facebook </p>
+              </button>
+            </div>
+          </form>
+        )}
       </div>
     </Fragment>
   );

@@ -4,10 +4,10 @@ import "./Notifications.scss";
 import { AiOutlineClose } from "react-icons/ai";
 import { connect } from "react-redux";
 import { toggleNotificationModal } from "../../redux/Notification/notificationModalAction";
-import EmptyNotifications from "./EmptyNotifications";
+// import EmptyNotifications from "./EmptyNotifications";
 
 const Notifications = (props) => {
-  console.log(props.notificationModalIsOpen);
+  // console.log(props.notificationModalIsOpen);
 
   const notificationModalIsOpen = props.notificationModalIsOpen
     ? "section"

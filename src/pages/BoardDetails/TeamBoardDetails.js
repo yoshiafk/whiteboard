@@ -50,8 +50,6 @@ const TeamBoardDetails = (props) => {
     dispatch(getUserData(token));
   }, [dispatch, token]);
 
-  // console.log("cape deh list");
-  // console.log(props.list);
   const [isOpen, setIsOpen] = useState(false);
   const d = new Date();
 
@@ -97,9 +95,7 @@ const TeamBoardDetails = (props) => {
 
   useEffect(() => {
     props.getListAction();
-  }, []);
-
-  // console.log("List =>", props.list);
+  }, [props.allList]);
 
   let userFromTeam = props.teamList[0].userId;
   // console.log("user From Team", userFromTeam);
@@ -172,7 +168,7 @@ const TeamBoardDetails = (props) => {
                       appearance="stack"
                       size="medium"
                       data={data}
-                    />
+                    ></AvatarGroup>
                   </User>
                   <Modal
                     className="Modal-invite-container"
@@ -190,16 +186,16 @@ const TeamBoardDetails = (props) => {
                       setWhichModal(MODAL_INVITE);
                     }}
                   >
-                    <span>Invites</span>
+                    <span>Invite</span>
                   </Invite>
-                  <button
+                  {/* <button
                     onClick={() => {
                       setIsOpen(true);
                       setWhichModal(MODAL_NEWTASK);
                     }}
                   >
                     new task
-                  </button>
+                  </button> */}
                 </TopRight>
               </DetailTop>
               <Border />
@@ -311,7 +307,6 @@ const TeamBoardDetails = (props) => {
                   name="todo"
                   id="form_listid"
                   // onChange={(event) => handleChangeData(event)}
-                  // value={user.industry}
                   // defaultValue={user.industry}
                 >
                   {props.list.map((el) => {
@@ -376,21 +371,13 @@ const TeamBoardDetails = (props) => {
                   id="form_desc"
                   editor={ClassicEditor}
                   data={f_description}
-                  onReady={(editor) => {
-                    // You can store the "editor" and use when it is needed.
-                    // console.log("Editor is ready to use!", editor);
-                  }}
+                  onReady={(editor) => {}}
                   onChange={(event, editor) => {
                     const data = editor.getData();
                     setDesc(data);
-                    // console.log({ event, editor, data });
                   }}
-                  onBlur={(event, editor) => {
-                    // console.log("Blur.", editor);
-                  }}
-                  onFocus={(event, editor) => {
-                    // console.log("Focus.", editor);
-                  }}
+                  onBlur={(event, editor) => {}}
+                  onFocus={(event, editor) => {}}
                 />
               </div>
               <button
