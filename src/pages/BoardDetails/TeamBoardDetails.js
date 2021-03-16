@@ -96,15 +96,15 @@ const TeamBoardDetails = (props) => {
   useEffect(() => {
     props.getListAction();
   }, [props.allList]);
-
-  let userFromTeam = props.teamList[0].userId;
+  // console.log(props.teamList);
+  // let userFromTeam = props.teamList[0].userId;
   // console.log("user From Team", userFromTeam);
-  const data = userFromTeam.map((d) => ({
-    email: d.email,
-    key: d.email,
-    name: d.name,
-    href: "#",
-  }));
+  // const data = userFromTeam.map((d) => ({
+  //   email: d.email,
+  //   key: d.email,
+  //   name: d.name,
+  //   href: "#",
+  // }));
 
   const onDragEnd = ({ source, destination, type }) => {
     if (!destination) return;
@@ -163,12 +163,12 @@ const TeamBoardDetails = (props) => {
                 </TopLeft>
                 <TopRight>
                   <User>
-                    <AvatarGroup
+                    {/* <AvatarGroup
                       maxCount="5"
                       appearance="stack"
                       size="medium"
                       data={data}
-                    ></AvatarGroup>
+                    ></AvatarGroup> */}
                   </User>
                   <Modal
                     className="Modal-invite-container"
