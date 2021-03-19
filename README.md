@@ -7,7 +7,7 @@
 
 > Batch 10 Final Project - Whiteboard
 
-### 🏠 [Homepage](https://gitlab.com/glints-academy-batch-10/whiteboard/fe-whiteboard)
+### 🏠 [Homepage](https://app-whiteboard.herokuapp.com/)
 
 ## Install
 
